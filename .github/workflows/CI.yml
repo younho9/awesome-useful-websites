@@ -14,10 +14,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - id: awesome-reading-list
-        uses: narkdown/awesome-reading-list@main
+      - id: awesome-useful-websites
+        uses: younho9/awesome-websites@main
         with:
           notion_api_token: ${{ secrets.NOTION_API_TOKEN }}
-          notion_database_url: ${{ secrets.NOTION_DATABASE_URL }}
+          notion_database_url: ${{ secrets.USEFUL_NOTION_DATABASE_URL }}
           gist_token: ${{ secrets.GIST_TOKEN }}
-          gist_id: ${{ secrets.GIST_ID }}
+          gist_id: ${{ secrets.USEFUL_GIST_ID }}
+          file_name: awesome-useful-websites.md
+
+      - id: awesome-inspiring-websites
+        uses: younho9/awesome-websites@main
+        with:
+          notion_api_token: ${{ secrets.NOTION_API_TOKEN }}
+          notion_database_url: ${{ secrets.INSPIRING_NOTION_DATABASE_URL }}
+          gist_token: ${{ secrets.GIST_TOKEN }}
+          gist_id: ${{ secrets.INSPIRING_GIST_ID }}
+          file_name: awesome-inspiring-websites.md
+
+      - id: awesome-korean-resume
+        uses: younho9/awesome-websites@main
+        with:
+          notion_api_token: ${{ secrets.NOTION_API_TOKEN }}
+          notion_database_url: ${{ secrets.RESUME_NOTION_DATABASE_URL }}
+          gist_token: ${{ secrets.GIST_TOKEN }}
+          gist_id: ${{ secrets.RESUME_GIST_ID }}
+          file_name: awesome-korean-resume.md
+          template_name: korean-resume-template.md

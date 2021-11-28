@@ -15,6 +15,7 @@ try {
   const templateName = getInput("template_name");
   const token = getInput("gist_token");
   const gistId = getInput("gist_id");
+  const title = fileName.split(".")[0].split("-").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(" ");
 
   const propertyOptions = {
     date: {
@@ -45,7 +46,7 @@ try {
     );
 
     const content = prettier.format(
-      ejs.render(template, { rows, databaseUrl }),
+      ejs.render(template, { rows, title, databaseUrl }),
       {
         parser: "markdown",
       }
